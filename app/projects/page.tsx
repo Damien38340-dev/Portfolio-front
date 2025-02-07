@@ -1,4 +1,7 @@
+"use client";
+
 import {useEffect, useState} from 'react';
+import ProjectCard from "@/components/ProjectCard";
 
 interface Project {
     id: number;
@@ -7,11 +10,11 @@ interface Project {
     link: string;
 }
 
-export default function Home() {
+export default function Projects() {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        fetch('data/projects.json')
+        fetch('/data/projects.json')
             .then(response => response.json())
             .then((data: Project[]) => setProjects(data));
     }, []);
@@ -20,15 +23,17 @@ export default function Home() {
 
         <div className="p-8">
             <h1 className="text-3xl font-bold">My Projects</h1>
-            <ul>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project) => (
-                    <li key={project.id}>
-                        <h2>{project.title}</h2>
-                        <p>{project.description}</p>
-                        <a href={project.link}>View on GitHub</a>
-                    </li>
+                    <ProjectCard
+                        key={project.id}
+                        title={project.title}
+                        description={project.description}
+                        link={project.link}
+                    />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }

@@ -14,8 +14,46 @@
   }
 }
 
+html, body {
+  height: 100%; /* Ensure body takes full height of the viewport */
+  margin: 0;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Makes sure the footer is pushed to the bottom */
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+  flex: 1; /* Takes up remaining space */
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
