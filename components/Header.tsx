@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
 
+    const [darkMode, setDarkMode] = useState(false);
     const [showHeader, setShowHeader] = useState(true); // State to manage visibility
     const [mouseActive, setMouseActive] = useState(true); // State to detect mouse activity
     const [isMouseInNav, setIsMouseInNav] = useState(false); // State to check if mouse is in the navbar
@@ -44,21 +45,49 @@ export default function Header() {
         };
     }, []);
 
-    return (
-        <header
-            className={`transition-transform duration-300 fixed top-0 left-0 w-full z-10 ${showHeader ? 'transform-none' : '-translate-y-full'}`}
-            onMouseEnter={handleMouseEnterNav}
-            onMouseLeave={handleMouseLeaveNav}
+
+
+    const toggleDarkMode = () => {
+        setDarkMode((prev) => {
+            const newMode = !prev;
+            if (newMode) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            return newMode;
+        });
+    };
+
+    useEffect(() => {
+        // Check system preference for dark mode
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setDarkMode(true);
+            document.documentElement.classList.add("dark");
+        }
+    }, []);
+
+    return (    <header
+            className={`transition-transform duration-300 fixed top-0 left-0 w-full z-10 ${
+                showHeader ? "transform-none" : "-translate-y-full"
+            }`}
         >
-            <nav className="flex justify-between items-center p-4 bg-white shadow-md">
-                <h1 className="text-3xl font-bold text-blue-700">Damien Lobato</h1>
+            <nav className="flex justify-between items-center p-4 bg-white dark:bg-gray-900 dark:text-white shadow-md transition-colors">
+                <h1 className="text-3xl font-bold text-blue-700 dark:text-blue-300">Damien Lobato</h1>
                 <ul className="flex space-x-4 text-lg">
-                    <li><Link href="#home" className="hover:underline">Accueil</Link></li>
-                    <li><Link href="#aboutMe" className="hover:underline">À propos</Link></li>
-                    <li><Link href="#projects" className="hover:underline">Projets</Link></li>
+                    <li><Link href="#home" className="hover:underline">Home</Link></li>
+                    <li><Link href="#aboutMe" className="hover:underline">About Me</Link></li>
+                    <li><Link href="#projects" className="hover:underline">Projects</Link></li>
                     <li><Link href="#contact" className="hover:underline">Contact</Link></li>
-                    <li className="bg-amber-500">Langage</li>
-                    <li className="bg-emerald-500">Mode Sombre</li>
+                    <li className="bg-amber-500 px-3 py-1 rounded">Language</li>
+                    <li>
+                        <button
+                            onClick={toggleDarkMode}
+                            className="p-2 rounded-md bg-gray-200 dark:bg-gray-700 transition-all"
+                        >
+                            {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </header>

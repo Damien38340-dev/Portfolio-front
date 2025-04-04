@@ -2,19 +2,42 @@
   {
     "id": 1,
     "title": "Donjons et Dragons",
-    "description": "A text-based RPG in Java where players interact through the terminal to explore dungeons, battle enemies and save characters in database.",
-    "link": "https://github.com/Damien38340-dev/Donjons-et-dragons"
+    "description": "A text-based RPG in Java where players interact through the terminal to explore dungeons, battle enemies, and save characters in a database.",
+    "links": [
+      { "url": "https://github.com/Damien38340-dev/Donjons-et-dragons", "label": "GitHub" }
+    ]
   },
   {
     "id": 2,
     "title": "Spiruline Website",
-    "description": "E-commerce website for selling spirulina-based products. Features suppliers list with filter and a map to locate them.",
-    "link": "https://github.com/Damien38340-dev/Spiruline-Website"
+    "description": "E-commerce website for selling spirulina-based products. Features a suppliers list with filters and a map to locate them.",
+    "links": [
+      { "url": "https://github.com/Damien38340-dev/Spiruline-Website", "label": "GitHub" }
+    ]
   },
   {
     "id": 3,
     "title": "Shop Fruits and Veggies",
-    "description": "E-commerce site to order fruits and vegetables. Users can filter products, and the back-office allows administrators to manage inventory (add, update, delete products).\n\n",
-    "link": "https://github.com/Damien38340-dev/Shop-Fruits-And-Veggies"
+    "description": "An e-commerce site to order fruits and vegetables. Users can filter products, and the back-office allows administrators to manage inventory (add, update, delete products).",
+    "links": [
+      { "url": "https://github.com/Damien38340-dev/Shop-Fruits-And-Veggies", "label": "GitHub" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Make It Grow!",
+    "description": "Make It Grow! is a smart vineyard management platform that provides real-time weather and soil data to help optimize agricultural decision-making. With an intuitive interface, users can access detailed forecasts, monitor environmental conditions, and enhance vineyard productivity using data-driven insights.",
+    "links": [
+      { "url": "https://github.com/Damien38340-dev/viticulture-frontend", "label": "Frontend" },
+      { "url": "https://github.com/Damien38340-dev/viticulture-backend", "label": "Backend" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "My Portfolio",
+    "description": "My portfolio showcases my projects, skills, and experiences in a user-friendly and visually engaging way, offering an improved presentation of my work.",
+    "links": [
+      { "url": "https://github.com/Damien38340-dev/Portfolio-front", "label": "GitHub" }
+    ]
   }
 ]
